@@ -23,7 +23,7 @@ function App() {
 
   const sortPosts = (sort) => {
     setSelectedSort(sort);
-    setPost([...posts].sort((a, b) +))
+    //setPost([...posts].sort((a,)))
 
   }
 
