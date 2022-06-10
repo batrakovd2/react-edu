@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './styles/app.css';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
+import MySelect from './components/UI/select/MySelect';
 
 function App() {
   
@@ -10,6 +11,7 @@ function App() {
     {id: 22, title:'JS 2', body: 'Descr'},
     {id: 33, title:'JS 3', body: 'Descr'}
   ]);
+  const [selectedSort, setSelectedSort] = useState('');
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost])
@@ -19,15 +21,26 @@ function App() {
     setPosts(posts.filter(p => p.id !== post.id))
   }
 
+  const sortPosts = (sort) => {
+    setSelectedSort(sort);
+    setPost([...posts].sort((a, b) +))
+
+  }
+
   return (
     <div className="App">
       <PostForm create={createPost}/>
       <hr style={{margin: '15px 0'}}/>
       <div>
-        <select>
-          <option value="value1">По названию</option>
-          <option value="value2">По описанию</option>
-        </select>
+        <MySelect
+          value={selectedSort}
+          onChange={sortPosts}
+          defaultValue={"Сортировка по"}
+          options={[
+            {value: 'title', name: 'По названию'},
+            {value: 'body', name: 'По описанию'}
+          ]}
+        />
       </div>
 
       {posts.length !== 0 
