@@ -13,7 +13,7 @@ const AppRouter = () => {
           <Routes>
             <Route path="about" element={<About />} />
             <Route exact path="posts" element={<Posts />} />
-            <Route exact path="post/:postId" element={<Post />} />
+            <Route exact path="post/:id" element={<Post />} />
             <Route  path="*" element={ <Error /> } />
           </Routes>
         </BrowserRouter>
